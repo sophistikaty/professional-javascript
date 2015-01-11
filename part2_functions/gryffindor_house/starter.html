@@ -25,7 +25,19 @@
 
     var extraStudents = ['Hermionie', 'Ron', 'Bill', 'Ted', 'Sam', 'Fred'];
 
-    var Gryffindor = {
+    function House (name) {
+      this.name = name;
+      this.students = [];
+    }
+
+    var Gryffindor = new House ('Gryffindor');
+    var HufflePuff = new House ('HufflePuff');
+    var Slytherin = new House ('Slytherin');
+    var RavenClaw = new House ('RavenClaw');
+
+    // constructor function invocation - 4th method to invoke functions. 
+
+    House.prototype = {
 
       // Includes an array for storing student objects:
       students: [],
