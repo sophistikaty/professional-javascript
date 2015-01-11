@@ -32,16 +32,43 @@
 
     // ... make "name-bttn" clicks generate a new random name combo ...
 
-    var bttn = document.querySelector('#name-bttn');
+    console.log(firstNames.length, lastNames.length);
 
-    bttn.addEventListener('click', function() {
-      var firstNameIndex = Math.round(Math.random() * (firstNames.length - 1));
-      var first = firstNames[firstNameIndex];
+    var oneUp = document.getElementById('name-bttn');
+    var update = document.getElementById('name-text');
 
-      var lastNameIndex = Math.round(Math.random() * (lastNames.length - 1));
-      var last = lastNames[lastNameIndex];
-      document.querySelector('#name-text').innerText = first +' '+ last;
+    oneUp.addEventListener('click', function(){
+
+        var first = firstNames[Math.round(Math.random() * (firstNames.length-1))];
+        var last = lastNames[Math.round(Math.random() * ( lastNames.length-1))];
+        
+        console.log(first, last);
+        nameText.innerText = first +' '+ last;
     });
+
+    // var nameBttn = document.getElementById('name-bttn');
+    // var nameText = document.getElementById('name-text');
+
+    // nameBttn.addEventListener('click', function() {
+    //   var first = firstNames[Math.round(Math.random() * (firstNames.length-1))];
+    //   var last = lastNames[Math.round(Math.random() * (lastNames.length-1))];
+
+    //   nameText.innerText = first +' '+ last;
+    // });
+
+
+    // function getRandomFirst(0,firstNames.length) {
+    //   return Math.random() * (max-min) + min;
+    // }
+
+    // function getRandomLast(0,lastNames.length) {
+    //   return Math.random() * (max-min) + min;
+    // }
+
+    // var first = Math.round( getRandomFirst();) 
+    // var last = Math.round( getRandomLast();
+
+  
 
     </script>
   </body>

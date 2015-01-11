@@ -20,6 +20,56 @@
 
       // ... make any user input adjust and set the opposite currency ...
 
+      var yourDollars = document.getElementById('currency-dollars');
+      var yourEuros = document.getElementById('currency-euros');
+
+      yourDollars.addEventListener('input', function(){
+        var dollars = parseInt(yourDollars.value || 0);
+
+        console.log(yourDollars.value);
+
+        yourEuros.value = (dollars * exchangeRate).toFixed(2);
+      });
+
+      yourEuros.addEventListener('input', function (){
+        var euros = parseInt(yourEuros.value || 0);
+
+      console.log(yourEuros.value);
+
+        yourDollars.value = (euros / exchangeRate).toFixed(2);
+      });
+        // return yourDollars.value;
+        // console.log(yourDollars.value);
+      
+
+      // var fieldDollars = document.getElementById('currency-dollars');
+      // var fieldEuros = document.getElementById('currency-euros');
+
+      // fieldDollars.addEventListener('input', function() {
+      //   var dollars = parseInt(fieldDollars.value || 0);
+      //   fieldEuros.value = (dollars * exchangeRate).toFixed(2);
+      // });
+
+      // fieldEuros.addEventListener('input', function() {
+      //   var euros = parseInt(fieldEuros.value || 0);
+      //   fieldDollars.value = (euros / exchangeRate).toFixed(2);
+      // });
+    
+
+    //   console.log(firstNames.length, lastNames.length);
+
+    // var oneUp = document.getElementById('name-bttn');
+    // var update = document.getElementById('name-text');
+
+    // oneUp.addEventListener('click', function(){
+
+    //     var first = firstNames[Math.round(Math.random() * (firstNames.length-1))];
+    //     var last = lastNames[Math.round(Math.random() * ( lastNames.length-1))];
+        
+    //     console.log(first, last);
+    //     nameText.innerText = first +' '+ last;
+    // });
+
     </script>
   </body>
 </html>

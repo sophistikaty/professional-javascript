@@ -109,6 +109,15 @@
       // 2) Total contributions given by donors.
       var totalFunding = 0;
 
+      for (var i=0; i < mine.donors.length; i++) {
+        totalFunding += mine.donors[i].contribution;
+      }
+      // for (var i=0; i < mine.donors.length; i++) {
+            // totalFunding+=mine.donors[i].contribution;
+          // console.log(budget.value);
+          // return (budget.value);
+ // console.log('The users ' + key + ' is ' + user[key]);
+
       // ... solve for total funding ...
 
       console.log("Total contributions given by donors: ", totalFunding);
@@ -119,9 +128,20 @@
       var activeDigs = 0;
 
       // ... solve for active digs ...
+       for (var i=0; i < mine.digs.length; i++) {
+          if (mine.digs[i].isActive) {
+            activeDigs++;
+          } 
+       }
 
       console.log("Number of ACTIVE dig sites worldwide: ", activeDigs);
- 
+
+
+   //    for (var i=0; i < mine.digs.length; i++) {
+   //      if (mine.digs[i].isActive) {
+   //        activeDigs += 1;
+   //      }
+   //    }
 
 
       // 4) Total number of finds in North America.
@@ -129,8 +149,21 @@
 
       // ... solve for finds in North America ...
 
+      for (var i=0; i < mine.digs.length; i++) {
+          if (mine.digs[i].continent === "North America") {
+            findsInNA += mine.digs[i].finds.length;
+          } 
+       }
+
+      //  for (var i=0; i < mine.digs.length; i++) {
+      //   if (mine.digs[i].continent === 'North America') {
+      //     findsInNA += mine.digs[i].finds.length;
+      //   }
+      // }
+
       console.log("Total number of finds in North America: ", findsInNA);
 
+  
 
 
       // 5) Total Brachiosaurus specimens found worldwide.
@@ -138,7 +171,29 @@
 
       // ... solve for total brachs worldwide ...
 
+      // for (var i=0; i < mine.digs.length; i++) {
+      //   var dig = mine.digs[i];
+
+      //   for (var j=0; j< dig.finds.length; j++) {
+      //     if (dig.finds[j].genus === "Brachiosaurus") {
+      //       brachsWorldwide += dig.finds[j].specimens;
+      //     }    
+      //   }
+      //  } 
+
+       for (var i=0; i < mine.digs.length; i++) {
+        var dig = mine.digs[i];
+
+        for (var j=0; j < dig.finds.length; j++) {
+          if (dig.finds[j].genus === 'Brachiosaurus') {
+            brachsWorldwide += dig.finds[j].specimens;
+          }
+        }
+      }
+
       console.log("Total Brachiosaurus specimens found worldwide: ", brachsWorldwide);
+
+      console.log(mine);
 
     </script>
   </body>

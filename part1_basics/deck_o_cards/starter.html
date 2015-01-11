@@ -18,10 +18,42 @@
     <p>(use the javascript console)</p>
     <script>
       var values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
-      var suits = ['H', 'D', 'C', 'S'];
+      var suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
       var deck = [];
 
       // ... build the deck ...
+ // for (var i=0; i < suits.length; i++) {
+ //  // deck.push(Suit = suits[i]
+ //    var nextSuit = suits[i];
+ //    console.log(nextSuit);
+  
+
+ //     for (var j=0; i < values.length; j++) {
+ //        var nextValue = values[i];
+ //        console.log(nextValue);
+
+ //        var card = {suit: nextSuit, value: nextValue};
+ //        // var nextCard = {nextSuit + nextValue};
+ //        deck.push(card);
+ //      }
+ //  }
+
+ //    console.log(deck);
+
+    for (var i=0; i < values.length; i++) {
+        for (var j=0; j < suits.length; j++) {
+          deck.push({
+            suit: suits[j],
+            value: values[i]
+          });
+        }
+      }
+
+
+  // function addSuit () {
+  //   for var i=0; i < suits.length; i++) {
+  //   return suits[i];
+
 
       console.log('Deck size: ', deck.length);
       console.log(deck);
