@@ -20,6 +20,11 @@
   <body>
     <p>(Work in the JavaScript Console)</p>
     <script>
+    
+    
+
+    var extraStudents = ['Hermionie', 'Ron', 'Bill', 'Ted', 'Sam', 'Fred'];
+
     var Gryffindor = {
 
       // Includes an array for storing student objects:
@@ -33,8 +38,14 @@
       // -> Gryffindor.addStudent("Harry Potter");
       //
       addStudent: function(name) {
-
+        this.students.push({
+          name: name,
+          points:0
+        });
       },
+
+      
+  
 
       // 1.BONUS) Add any number of new student objects to the "students" array:
       // you'll need to loop through arguments and call "addStudent" for each name.
@@ -43,6 +54,12 @@
       // -> Gryffindor.addStudents("Ron Weasley", "Hermionie Granger");
       //
       addStudents: function() {
+        for (var i=0; i < extraStudents.length; i++) {
+          this.students.push({
+            name: extraStudents[i],
+            points:0
+          });
+        };
 
       },
 
@@ -55,6 +72,15 @@
       // -> {name: "Harry Potter", points: 0}
       //
       getStudent: function(name) {
+        for (var i=0; i < this.students.length; i++) {
+          if (this.students[i].name === name) {
+            console.log(this.students[i]);
+            return this.students[i]
+          };
+          // else {
+          //   console.log ('nope');
+          // };
+        };
 
       },
 
@@ -65,6 +91,9 @@
       // -> Gryffindor.awardPointsTo("Harry Potter", 50);
       //
       awardPointsTo: function(name, points) {
+        var student = this.getStudent(name);
+        student.points += points;
+        console.log(student);
 
       },
 
@@ -75,9 +104,30 @@
       // -> Gryffindor.getHousePoints();
       //
       getHousePoints: function() {
-
+        var housePoints = 0;
+        for (var i=0; i < this.students.length; i++) {
+          housePoints += this.students[i].points;
+        }
+        return housePoints;
       }
     };
+
+    console.log (Gryffindor);
+
+    console.log (1);
+    Gryffindor.addStudent("Harry Potter");
+    console.log (Gryffindor.students);
+
+    console.log ("BONUS! 1");
+    Gryffindor.addStudents(extraStudents);
+    console.log(Gryffindor.students);
+
+    console.log (2);
+    Gryffindor.getStudent("Harry Potter");
+    // console.log(result);
+
+    console.log (3);
+
     </script>
   </body>
 </html>

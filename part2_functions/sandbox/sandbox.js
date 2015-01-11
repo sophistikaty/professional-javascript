@@ -2,6 +2,13 @@
 
 console.log('Ready to dive.');
 
+function printName (first, last) {
+	console.log(arguments);
+	console.log(last);
+}
+
+
+
 // function goBoom () {
 // 	console.log('BOOM');
 // }
