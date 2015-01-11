@@ -1,11 +1,19 @@
+it('should be a passing test', function() {
+  var doesTheSpecPass = true;
+  expect(doesTheSpecPass ).toBe(true);
+});
+
+
 // PART 1: Sunlight Zone: Arguments & Return
 // -----------------------------------------
 
 it('will accept arguments and return values.', function() {
 
   function test(a, b) {
+    return a + b;
 
   }
+  expect( test(20,30) ).toBe(50);
 
 });
 
@@ -13,7 +21,7 @@ it('will accept arguments and return values.', function() {
 it('provides an arguments *object* that contains all arguments passed into the function.', function() {
 
   function test() {
-    
+    //skipped
   }
 
 });
@@ -29,7 +37,16 @@ it('allows function scopes to reference outward, but not to look inward at neste
 
   function test() {
     var inner = 20;
+    expect(outer).toBe(10);
+    expect (inner).toBe(20);
+    return inner;
   }
+
+  var result = test();
+  test();
+  expect(result).toBe(20);
+  expect(outer).toBe(10);
+  // expect(typeof inner).toBe("undefined");
 
 });
 
@@ -41,7 +58,11 @@ it('will override conflicting variable declarations in an inner scope. The outer
 
   function test() {
     var n = 20;
+    expect(n).toBe(20);
   }
+
+  expect (n).toBe(5);
+  test();
 
 });
 
@@ -52,9 +73,13 @@ it('allows inner scopes to access and modify variables declared in an outer scop
   var n = 5;
 
   function test() {
-    n = 20;
+    n = 20; // since variable is not declared with 'var', 
+    //n=20 goes up the chain until it finds a declaration 'var'
+    // if it doesn't find a declaration 'var' for 'n' it will declare itself in the global scope
+    //which is very bad because it leaks globally (visible to all of the internet)
   }
-
+  test();
+  // expect(n).toBe(5);
 });
 
 
@@ -62,8 +87,11 @@ it('allows inner scopes to access and modify variables declared in an outer scop
 it('assigns all undeclared variables into global (window) scope.', function() {
 
   function test() {
-    n = 20;
+    n = 20; //
   }
+  test();
+  expect(window.n).toBe(20);
+  console.log(window.n);
 
 });
 
@@ -71,7 +99,15 @@ it('assigns all undeclared variables into global (window) scope.', function() {
 
 it('allows Immedaitely-Invoked Function Expressions (IIFE) to set up a private scope.', function() {
 
-  // Write an IIFE...
+  var called = false;
+  
+  (function(){
+    // Write an IIFE...
+    called = true;
+  })();
+  
+  expect(called).toBe(true);
+
 
 });
 
